@@ -15,6 +15,7 @@ hdrSummaryProcessing.py -> adds calculated parameters to the hdrFileSummary.csv 
 * runSampleFast_Int (integer representation of runSampleFast for use in the Volume analyzed calculation. Where runSampleFast == False -> runSampleFast_Int == 1 and where runSampleFast == True -> runSampleFast_Int == 0
 * flowRate_mins = SyringeSampleVolume / syringeSamplingSpeed
 * volumeAnalyzed = (RunFastFactor * runSampleFast_Int) * df['flowRate_mins'] * (df['lookTime']/60)
+* Output: hdrFileSummaryFULL-withCalculations.csv
     
 
 
