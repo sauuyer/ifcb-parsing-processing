@@ -10,8 +10,11 @@ gather_variables_from_hdr.py -> identify and pull metadata from the hdr files
 * Output: hdrFileSummary.csv
 
 hdrSummaryProcessing.py -> adds calculated parameters to the hdrFileSummary.csv file
-* Added parameters:
-       * Datetime (pulled from filename)
+* Datetime (pulled from filename)
+* lookTime = runTime = inhibitTime
+* runSampleFast_Int (integer representation of runSampleFast for use in the Volume analyzed calculation. Where runSampleFast == False -> runSampleFast_Int == 1 and where runSampleFast == True -> runSampleFast_Int == 0
+* flowRate_mins = SyringeSampleVolume / syringeSamplingSpeed
+* volumeAnalyzed = (RunFastFactor * runSampleFast_Int) * df['flowRate_mins'] * (df['lookTime']/60)
     
 
 
@@ -20,4 +23,4 @@ hdrSummaryProcessing.py -> adds calculated parameters to the hdrFileSummary.csv 
 
 A basic classifier that allows for large category organism and object identification to allow for quick comparision between ROI bins. 
 
-###
+
