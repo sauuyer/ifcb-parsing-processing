@@ -19,7 +19,7 @@ hdrSummaryProcessing.py -> adds calculated parameters to the hdrFileSummary.csv 
 
 
 
-### Classifier sandbox (not uploaded)
+### Classifier sandbox (not yet pushed to repo)
 
 A basic classifier that allows for large category organism and object identification to allow for quick comparision between ROI bins. 
 
