@@ -16,6 +16,12 @@
 - tags related to targeted sample depths (from water sampling strategy document): "surface", "chlorophyll max", "moored ifcb depth"
 - tags related to nearby array site, within 2 km of a given site center (CNSM, etc.)
 
+**latitude and logitude**
+these populate the metadata csv, but are added directly to sample metadata in the dashboard, coords do not appear in the filter or tag options after they are added
+- discrete samples:
+- underway samples: lat and lon coords per sample are taken from ship data coords matched by datetime stamp within 5 minutes of samples. 
+- 
+
 #### python processing file order
 
 1. hdr_roi_compare.py 
