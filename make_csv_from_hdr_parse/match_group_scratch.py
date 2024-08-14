@@ -14,4 +14,4 @@ if match:
     number = match.group(1)
     print("Match found:", number)
 else:
-    print("No match found.")
+    print("No match found")

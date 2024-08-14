@@ -3,7 +3,8 @@ import pandas as pd
 import re
 import chardet
 
-dir = "/Volumes/My Passport/IFCB_PLIMS/AR82_ifcb_data/AR82_ifcb206_all_data/"
+dir = "/Volumes/My Passport 1/IFCB_PLIMS/AR82_ifcb_data/AR82_ifcb206_all_data"
+moored_dir = "/Volumes/My Passport/199_rois_hdrs_adcs"
 #dir = "/Users/sawyer/Desktop/AR82-Pioneer20/ifcb-test-dir"
 #print(dir)
 #file_parameters = ["triggerCount", "roiCount", "humidity", "temperature", "runTime", "inhibitTime", "PMTAhighVoltage", "PMTBhighVoltage", "FileComment"]
@@ -37,17 +38,20 @@ def gather_values(text_content, param_list):
 
     all_fileparam_dicts.append(file_dict)
 
+#dictionary that allows for only data that has associated roi files to be processed
+roi_files = {os.path.splitext(file)[0] for file in os.listdir(moored_dir) if file.endswith(".roi")}
 
-for file in os.listdir(dir):
-    if file.endswith(".hdr"):
-        filepath = os.path.join(dir, file)
+for file in os.listdir(moored_dir):
+    if file.endswith(".hdr") and not file.startswith("._"):
         filename = os.path.splitext(file)[0]
         #print(filepath)
-        with open(filepath, "r", encoding="iso-8859-1") as f:
+        if filename in roi_files:
+            filepath = os.path.join(moored_dir, file)
+            with open(filepath, "r", encoding="iso-8859-1") as f:
             #print(f)
-            hdr_content = f.read()
-            #print(hdr_content)
-            gather_values(hdr_content, file_parameters)
+                hdr_content = f.read()
+                #print(hdr_content)
+                gather_values(hdr_content, file_parameters)
 
 df = pd.DataFrame(all_fileparam_dicts)
 
@@ -55,7 +59,7 @@ df = pd.DataFrame(all_fileparam_dicts)
 
 print(df)
 
-df.to_csv("hdrFileSummaryFULL-TCadditions_2024-04-13.csv")
+df.to_csv("hdrFileSummary_2024-06-10.csv")
 
 
 

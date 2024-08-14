@@ -2,7 +2,7 @@ from datetime import datetime
 import pandas as pd
 import re
 
-file = "/Users/sawyer/Desktop/AR82-Pioneer20/ifcb-test-dir/ifcb-parsing-processing/make_csv_from_hdr_parse/hdr_full_file_summaries/hdrFileSummaryFULL-TCadditions_2024-04-14.csv"
+file = "hdrFileSummary_2024-06-10.csv"
 
 # read in processed file as a dataframe
 df = pd.read_csv(file)
@@ -51,5 +51,4 @@ df['volumeAnalyzed'] = (df['RunFastFactor'] * df['runSampleFast_Int']) * df['flo
 
 print(df['volumeAnalyzed'])
 
-
-df.to_csv("/Users/sawyer/Desktop/AR82-Pioneer20/ifcb-test-dir/ifcb-parsing-processing/make_csv_from_hdr_parse/hdr_summaries_and_calcs/hdrFileSummaryFULLwithCalcs_2024-04-14_2.csv", index=False)
+df.to_csv("/Users/sawyer/Desktop/AR82-Pioneer20/ifcb-test-dir/ifcb-parsing-processing/make_csv_from_hdr_parse/hdr_summaries_and_calcs/hdrFileSummaryFULL_2024-06-10", index=False)
