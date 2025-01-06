@@ -42,11 +42,17 @@ these populate the metadata csv, but are added directly to sample metadata in th
 4. hdrSummaryProcessing.py
 
       outputs a csv containing
+   
        - Datetime pulled from the file name
+   
        - lookTime (lookTime = runTime - inhibitTime)
+   
        - runSampleFast_Int
+   
        - water_sample_type (in-lab testing, underway, discrete_sample, etc.; taken from file comment)
+   
        - flowRate_mins (df['SyringeSampleVolume'] / df['syringeSamplingSpeed'])
+   
        - volumeAnalyzed (df['RunFastFactor'] * df['runSampleFast_Int']) * df['flowRate_mins'] * (df['lookTime']/60)
 
        output csv filename example = hdrFileSummaryFULL_2024-08-14.csv
