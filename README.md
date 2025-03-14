@@ -3,7 +3,10 @@
 This repository contains Python scripts that can be used by IFCB operators to process raw IFCB header data for use in OOI IFCB logs and 
 OOI IFCB Dashboard Metadata input. 
 
+
+
 #### Repo Organization
+
 
 **IFCB_Log_Notebooks**
 
@@ -13,6 +16,7 @@ These notebooks contain...
 * IFCB_Log-Discrete_IFCB_Data_Processing.ipynb (Creates a .csv of compiled IFCB data to be used to populate the OOI IFCB Log from IFCB discrete .hdr files.)
 * Ship_Underway_Lat_and_Lon_Processing.ipynb (Processes and standardizes shipboard data from the R/V Armstrong so lat and lon can be added to underway IFCB data.)
 * IFCB_Dashboard_Metadata_CSV.ipynb (Creates metadata for the OOI IFCB Dashboard from the OOI IFBC Log Excel file.)
+
 
 **make_csv_from_hdr_parse & underway_data_processing**
 
@@ -54,6 +58,8 @@ These scripts were developed during the first deployment and shipboard ops of th
 6. summaryHDR_and_underway.py
 
     merges hdrFileSummaryFULL csv with merged underway ship data.
+
+
 
 #### OOI IFCB Dashboard Organization
 - 1 dashboard for all OOI IFCB data
