@@ -5,10 +5,10 @@ OOI IFCB Dashboard Metadata input.
 
 
 
-### Repo Organization
+### Using the Jupyter Notebooks
 
 
-**IFCB_Log_Notebooks**
+**IFCB_Log_Notebooks Organization**
 
 These notebooks contain...
 * IFCB_Quick_Operator_QC_Checks.ipynb (Verifies that .rois have corresponding .hdr files within a specified directory.)
@@ -22,6 +22,28 @@ These notebooks contain...
 * /Merged_Ship_Underway_Files (Files created by Ship_Underway_Lat_and_Lon_Processing.ipynb + shipboard data; these files are used during the lat & lon processing portions of IFCB_Log-Underway_IFCB_Data_Processing.ipynb.)
 * /Metadata_CSVs (Contains files output from IFCB_Dashboard_Metadata_CSV.ipynb, which can be uploaded to the OOI IFCB Dashboard to associate filters and tags with Samples in the UI.) 
 
+**Installation**
+
+1) Clone the repo:
+
+`git clone [repo URL]`
+
+2) Set up a Python environment:
+
+`python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On Windows`
+
+3) Install dependencies:
+
+`pip install -r ifcb-parsing-processing/requirements.txt`
+
+4) Launch the Jupyter Notebooks (nativate to the IFCB_Log_Notebooks directory and launch Jupyter)
+
+`cd IFCB_Log_Notebooks
+jupyter notebook`
+
+### File background/context
 
 **make_csv_from_hdr_parse & underway_data_processing**
 
