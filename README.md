@@ -1,28 +1,22 @@
-# OOI CGSN IFCB Data Product Management
+# OOI CGSN IFCB Data Management Repo for IFCB Operators
 
-#### dashboard organization
-- 1 dashboard for all ooi ifcb data
-- each dataset in the public-facing dashboard represents 1 array (currently there will be 1 total dataset representing Pioneer MAB, this will contain moored, discrete, and underway data from all ooi ifcbs that operate at the pioneer mab site)
+This repository contains Python scripts that can be used by IFCB operators to process raw IFCB header data for use in OOI IFCB logs and 
+OOI IFCB Dashboard Metadata input. 
 
-#### filters and tags
+#### Repo Organization
 
-**filters** (these options are fixed in the dashboard)
-- Dataset
-- Instrument (instrument #)
-- Cruise (cruise # by default, we might want to use/force ooi deployment number here instead?)
-- Sample Type (discrete, underway, moored)
+**IFCB_Log_Notebooks**
 
-**tags**
-- tags related to targeted sample depths (from water sampling strategy document): "surface", "chlorophyll max", "moored ifcb depth"
-- tags related to nearby array site, within 2 km of a given site center (CNSM, etc.)
+These notebooks contain...
+* IFCB_Quick_Operator_QC_Checks.ipynb (Verifies that .rois have corresponding .hdr files within a specified directory.)
+* IFCB_Log-Underway_IFCB_Data_Processing.ipynb (Creates a .csv of compiled IFCB data to be used to populate the OOI IFCB Log from IFCB underway .hdr files.)
+* IFCB_Log-Discrete_IFCB_Data_Processing.ipynb (Creates a .csv of compiled IFCB data to be used to populate the OOI IFCB Log from IFCB discrete .hdr files.)
+* Ship_Underway_Lat_and_Lon_Processing.ipynb (Processes and standardizes shipboard data from the R/V Armstrong so lat and lon can be added to underway IFCB data.)
+* IFCB_Dashboard_Metadata_CSV.ipynb (Creates metadata for the OOI IFCB Dashboard from the OOI IFBC Log Excel file.)
 
-**latitude and logitude**
-these populate the metadata csv, but are added directly to sample metadata in the dashboard, coords do not appear in the filter or tag options after they are added
-- discrete samples:
-- underway samples: lat and lon coords per sample are taken from ship data coords matched by datetime stamp within 5 minutes of samples. 
-- 
+**make_csv_from_hdr_parse & underway_data_processing**
 
-#### python processing file order
+These scripts were developed during the first deployment and shipboard ops of the OOI IFCBs. They have since been superseded by the scripts in the Jupyter Notebooks within IFCB_Log_Notebooks.
 
 1. hdr_roi_compare.py 
 
@@ -53,7 +47,7 @@ these populate the metadata csv, but are added directly to sample metadata in th
    
        - flowRate_mins (df['SyringeSampleVolume'] / df['syringeSamplingSpeed'])
    
-       - volumeAnalyzed (df['RunFastFactor'] * df['runSampleFast_Int']) * df['flowRate_mins'] * (df['lookTime']/60)
+       - volumeAnalyzed (df['RunFastFactor'] * df['runSampleFast_Int']) * df['flowRate_mins'] * (df['lookTime']/60)/5
 
        output csv filename example = hdrFileSummaryFULL_2024-08-14.csv
 
@@ -61,10 +55,27 @@ these populate the metadata csv, but are added directly to sample metadata in th
 
     merges hdrFileSummaryFULL csv with merged underway ship data.
 
+#### OOI IFCB Dashboard Organization
+- 1 dashboard for all OOI IFCB data
+- Each dataset in the public-facing dashboard represents 1 array (currently there will be 1 total dataset representing Pioneer MAB, this will contain moored, discrete, and underway data from all OOI IFCBs that operate at the Pioneer MAB site)
+
+#### filters and tags
+
+**filters** (these options are fixed in the dashboard)
+- Dataset
+- Instrument (instrument #)
+- Cruise (cruise # by default, we might want to use/force ooi deployment number here instead?)
+- Sample Type (discrete, underway, moored)
+
+**tags**
+- tags related to targeted sample depths (from water sampling strategy document): "surface", "chlorophyll max", "moored ifcb depth"
+- tags related to nearby array site, within 2 km of a given site center (CNSM, etc.)
+
+**latitude and logitude**
+these populate the metadata csv, but are added directly to sample metadata in the dashboard, coords do not appear in the filter or tag options after they are added
+- discrete samples:
+- underway samples: lat and lon coords per sample are taken from ship data coords matched by datetime stamp within 5 minutes of samples. 
 
 
-### Classifier sandbox (not yet pushed to repo)
-
-A basic classifier that allows for large category organism and object identification to allow for quick comparision between ROI bins. 
 
 
