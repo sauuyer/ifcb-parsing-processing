@@ -5,7 +5,7 @@ OOI IFCB Dashboard Metadata input.
 
 
 
-#### Repo Organization
+### Repo Organization
 
 
 **IFCB_Log_Notebooks**
@@ -16,6 +16,11 @@ These notebooks contain...
 * IFCB_Log-Discrete_IFCB_Data_Processing.ipynb (Creates a .csv of compiled IFCB data to be used to populate the OOI IFCB Log from IFCB discrete .hdr files.)
 * Ship_Underway_Lat_and_Lon_Processing.ipynb (Processes and standardizes shipboard data from the R/V Armstrong so lat and lon can be added to underway IFCB data.)
 * IFCB_Dashboard_Metadata_CSV.ipynb (Creates metadata for the OOI IFCB Dashboard from the OOI IFBC Log Excel file.)
+
+* /IFCB_Logs (IFCB logs are manually uploaded to this folder; these logs are needed to run IFCB_Dashboard_Metadata_CSV.ipynb.)
+* /HDR_Summaries (Contains csvs output from the *_IFCB_Data_Processing.ipynbs; these files are used to create IFCB logs.)
+* /Merged_Ship_Underway_Files (Files created by Ship_Underway_Lat_and_Lon_Processing.ipynb + shipboard data; these files are used during the lat & lon processing portions of IFCB_Log-Underway_IFCB_Data_Processing.ipynb.)
+* /Metadata_CSVs (Contains files output from IFCB_Dashboard_Metadata_CSV.ipynb, which can be uploaded to the OOI IFCB Dashboard to associate filters and tags with Samples in the UI.) 
 
 
 **make_csv_from_hdr_parse & underway_data_processing**
