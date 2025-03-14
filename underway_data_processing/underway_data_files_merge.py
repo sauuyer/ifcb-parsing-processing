@@ -6,8 +6,8 @@ from datetime import datetime
 
 #the directory containing the csv files from the underway system
 ##each file is a day, and the file is data collected every minute
-dir1 = "/Users/sawyer/Desktop/AR82-Pioneer20/AR82_armstrong_underway_data/leg1/proc"
-dir2 = "/Users/sawyer/Desktop/AR82-Pioneer20/AR82_armstrong_underway_data/leg2/proc"
+dir1 = "/AR82-Pioneer20/AR82_armstrong_underway_data/leg1/proc" # example dir
+dir2 = "/AR82-Pioneer20/AR82_armstrong_underway_data/leg2/proc" # example dir
 
 #the regex pattern that will match the correct underway files
 file_name_pattern = r'AR\d*_0000.csv'
