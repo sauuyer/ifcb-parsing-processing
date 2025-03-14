@@ -43,7 +43,9 @@ venv\Scripts\activate     # On Windows`
 `cd IFCB_Log_Notebooks
 jupyter notebook`
 
-### File background/context
+
+
+#### Other Python file background/context
 
 **make_csv_from_hdr_parse & underway_data_processing**
 
@@ -88,8 +90,9 @@ These scripts were developed during the first deployment and shipboard ops of th
 
 
 
-#### OOI IFCB Dashboard Organization
-- 1 dashboard for all OOI IFCB data
+#### OOI IFCB Dashboard background/context 
+
+- 1 dashboard is used to provide all OOI IFCB data
 - Each dataset in the public-facing dashboard represents 1 array (currently there will be 1 total dataset representing Pioneer MAB, this will contain moored, discrete, and underway data from all OOI IFCBs that operate at the Pioneer MAB site)
 
 #### filters and tags
